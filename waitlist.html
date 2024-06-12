@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Join Our Waitlist - TechSPARK</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Join the TechSPARK Waitlist</h1>
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="waitlist.html">Waitlist</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="text">
+            <h2>Be the First to Know</h2>
+            <form id="waitlistForm">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <label>
+                    <input type="radio" name="updates" value="yes" required> I want to receive updates
+                </label>
+                <button type="button" onclick="submitForm()">Join Waitlist</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 TechSPARK. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function submitForm() {
+            var email = document.getElementById("email").value;
+            var updates = document.querySelector('input[name="updates"]:checked');
+
+            if (email === "") {
+                alert("Please enter your email.");
+                return;
+            }
+
+            if (!validateEmail(email)) {
+                alert("Please enter a valid email address.");
+                return;
+            }
+
+            if (!updates) {
+                alert("Please select whether you want to receive updates.");
+                return;
+            }
+
+            alert("Email: " + email + "\nReceive Updates: " + updates.value);
+        }
+
+        function validateEmail(email) {
+            var re = /\S+@\S+\.\S+/;
+            return re.test(email);
+        }
+    </script>
+</body>
+</html>
+
